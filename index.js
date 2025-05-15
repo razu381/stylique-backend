@@ -59,6 +59,7 @@ async function run() {
           minPrice: req.query.minPrice,
           maxPrice: req.query.maxPrice,
           rating: req.query.rating,
+          search: req.query.search,
         };
         console.log("raw ", raw);
         const parsed = {
@@ -66,6 +67,7 @@ async function run() {
           minPrice: raw.minPrice ? parseFloat(raw.minPrice) : undefined,
           maxPrice: raw.maxPrice ? parseFloat(raw.maxPrice) : undefined,
           rating: raw.rating ? parseFloat(raw.rating) : undefined,
+          search: raw.search ? raw.search.trim() : undefined,
         };
         console.log("parsed", parsed);
         const filter = buildProductFilter(parsed);
@@ -80,7 +82,13 @@ async function run() {
     });
 
     //make filters
-    function buildProductFilter({ category, minPrice, maxPrice, rating }) {
+    function buildProductFilter({
+      category,
+      minPrice,
+      maxPrice,
+      rating,
+      search,
+    }) {
       const filter = {};
 
       if (category) {
@@ -97,6 +105,10 @@ async function run() {
         filter.rating = { $gte: rating };
       }
 
+      if (search) {
+        filter.name = { $regex: search, $options: "i" };
+      }
+      console.log("filter", filter);
       return filter;
     }
 
