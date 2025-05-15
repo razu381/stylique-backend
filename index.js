@@ -60,13 +60,14 @@ async function run() {
           maxPrice: req.query.maxPrice,
           rating: req.query.rating,
         };
+        console.log("raw ", raw);
         const parsed = {
           category: raw.category,
           minPrice: raw.minPrice ? parseFloat(raw.minPrice) : undefined,
           maxPrice: raw.maxPrice ? parseFloat(raw.maxPrice) : undefined,
           rating: raw.rating ? parseFloat(raw.rating) : undefined,
         };
-
+        console.log("parsed", parsed);
         const filter = buildProductFilter(parsed);
         const result = await productCollection.find(filter).toArray();
         res.send(result);
@@ -83,7 +84,6 @@ async function run() {
       const filter = {};
 
       if (category) {
-        // exact match or multiple categories: filter.category = { $in: [...] }
         filter.category = category;
       }
 
@@ -94,7 +94,6 @@ async function run() {
       }
 
       if (rating != null) {
-        // e.g. only products with rating >= given value
         filter.rating = { $gte: rating };
       }
 
@@ -195,11 +194,6 @@ async function run() {
     app.post("/checkout", async (req, res) => {
       try {
         let orderInfo = req.body;
-        //console.log(orderInfo);
-        //check for duplicate order
-        isDuplicate = await orderCollection.findOne({
-          orderId: orderInfo.orderId,
-        });
 
         //check for each items stock
         let inStock = true;
