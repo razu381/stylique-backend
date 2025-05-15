@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Organic Jeans T-Shirt",
+    "description": "Discover the perfect fusion of comfort and style with our Organic Jeans T-Shirt. Crafted from 100% sustainably sourced organic cotton, this tee features a subtle denim-inspired texture and classic crew neckline. Breathable and soft against the skin, it’s available in a range of washed denim hues and sizes XS to XXL for an ideal fit. Its durable, eco-friendly construction and timeless design make it a wardrobe staple for any casual look.",
+    "category": "men",
+    "price": 29.99,
+    "rating": 4.5,
+    "image": "https://i.ibb.co.com/4n1ZsJ69/img1.jpg",
+    "stock": 150
+  },
+  {
+    "name": "Slim Fit Jeans",
+    "description": "Our Slim Fit Jeans are expertly tailored from premium quality denim, offering a modern and streamlined silhouette that flatters all figures. These jeans boast a comfortable stretch for ease of movement while maintaining their shape throughout the day. Featuring a classic five-pocket design and a durable construction, they are perfect for both casual outings and more dressed-up occasions. Available in a variety of washes and inseam lengths to suit your personal style and preference.",
+    "category": "men",
+    "price": 59.99,
+    "rating": 4.2,
+    "image": "https://i.ibb.co.com/zTk3Gf5N/img2.jpg",
+    "stock": 100
+  },
+  {
+    "name": "Original leather jacket",
+    "description": "Step into effortless edge with our Original Leather Jacket, crafted from genuine premium leather for a supple feel and lasting durability. It features a classic biker silhouette, asymmetrical zip front, snap-down lapels, and zippered cuffs for a custom fit. Fully lined for comfort, with multiple pockets for essentials. A timeless piece that only develops more character with wear.",
+    "category": "women",
+    "price": 49.5,
+    "rating": 4.7,
+    "image": "https://i.ibb.co.com/HLM4Y9YT/img3.jpg",
+    "stock": 80
+  },
+  {
+    "name": "Summer Linen Dress",
+    "description": "Embrace the lightweight and airy feel of our Summer Linen Dress, crafted from 100% natural linen for superior breathability on warm days. Featuring a relaxed fit, adjustable spaghetti straps, and a flattering A-line silhouette, this dress is perfect for beach strolls or garden gatherings. Offered in an array of vibrant prints and solid tones, it keeps you cool and stylish throughout the season.",
+    "category": "women",
+    "price": 69.0,
+    "rating": 4.4,
+    "image": "https://i.ibb.co.com/VcPT4gqh/img4.jpg",
+    "stock": 70
+  },
+  {
+    "name": "Stylish summer vest",
+    "description": "Stay chic and cool with our Stylish Summer Vest, made from lightweight breathable cotton. This sleeveless design features a tailored fit, V-neckline, and button-front closure for a polished look. Perfect for layering over tees or pairing with shorts and skirts, it comes in an assortment of pastel and neutral shades to complement any summer outfit.",
+    "category": "women",
+    "price": 35.0,
+    "rating": 4.6,
+    "image": "https://i.ibb.co.com/MkBd9wW2/img5.jpg",
+    "stock": 120
+  },
+  {
+    "name": "Latest party dress",
+    "description": "Turn heads in our Latest Party Dress, designed with a figure-skimming silhouette and shimmering sequined fabric. It features a flattering sweetheart neckline, adjustable spaghetti straps, and a thigh-high slit for a touch of drama. Fully lined for comfort and available in bold jewel tones and classic black, it’s your go-to piece for weddings, cocktail events, or nights out on the town.",
+    "category": "popular",
+    "price": 54.99,
+    "rating": 4.5,
+    "image": "https://i.ibb.co.com/B208qVcR/img6.jpg",
+    "stock": 110
+  },
+  {
+    "name": "Wide Leg Trousers",
+    "description": "Make a stylish statement with our Wide Leg Trousers, designed to offer a relaxed yet sophisticated silhouette. These trousers are crafted from a flowing fabric that drapes beautifully and provides exceptional comfort. Featuring a high waist and a wide leg that elongates the figure, they are perfect for creating chic and contemporary outfits. Available in a variety of fabrics, colors, and patterns, these trousers are a versatile addition to any fashion-forward wardrobe.",
+    "category": "popular",
+    "price": 75.0,
+    "rating": 4.7,
+    "image": "https://i.ibb.co.com/nqY7z2nP/img7.jpg",
+    "stock": 60
+  },
+  {
+    "name": "Stylish japaneese kimano",
+    "description": "Honor tradition with our Stylish Japanese Kimono, crafted from lightweight silk-blend fabric that drapes elegantly. This piece features wide sleeves, a classic obi belt for a cinched waist, and intricate, culturally inspired patterns. Perfect for lounging at home or dressing up for special occasions, it brings a touch of Eastern elegance to any wardrobe.",
+    "category": "women",
+    "price": 39.99,
+    "rating": 4.2,
+    "image": "https://i.ibb.co.com/xtDh4yNZ/img8.jpg",
+    "stock": 130
+  },
+  {
+    "name": "White formal shirt",
+    "description": "Elevate your professional wardrobe with our White Formal Shirt, made from crisp, breathable cotton poplin. It features a spread collar, French placket, and double-button barrel cuffs for a clean, tailored look. Designed for a slim yet comfortable fit, it’s ideal for boardroom meetings, weddings, or any formal event. Pair with a suit or wear solo for timeless sophistication.",
+    "category": "men",
+    "price": 79.95,
+    "rating": 4.6,
+    "image": "https://i.ibb.co.com/fY55Ydxh/img9.jpg",
+    "stock": 50
+  },
+  {
+    "name": "Black t-shirt for women",
+    "description": "Define your everyday essentials with our Black T-Shirt for Women. Made from ultra-soft cotton jersey, this tee features a flattering scoop neckline and tailored short sleeves for a versatile, slim fit. Breathable and lightweight, it pairs effortlessly with jeans, skirts, or layered under jackets for a sleek, minimalist look.",
+    "category": "popular",
+    "price": 19.99,
+    "rating": 4.8,
+    "image": "https://i.ibb.co.com/dsPhLfQy/img10.jpg",
+    "stock": 160
+  },
+  {
+    "name": "Jeans shirt pant combo",
+    "description": "Upgrade your denim game with our Jeans Shirt Pant Combo—a coordinated set featuring a classic button-up denim shirt and matching high-waisted jeans. Both pieces are crafted from stretch denim for all-day comfort and feature uniform washes, contrast stitching, and silver-tone hardware. Wear together for an on-trend monochrome look or style individually to expand your outfit options.",
+    "category": "men",
+    "price": 45.75,
+    "rating": 4.3,
+    "image": "https://i.ibb.co.com/5WsyTH6h/img11.jpg",
+    "stock": 90
+  },
+  {
+    "name": "Timeless grey overcoat",
+    "description": "Stay warm in refined style with our Timeless Grey Overcoat, crafted from a luxurious wool-blend fabric. This coat features a classic single-breasted silhouette, notch lapels, and concealed button closure for a sleek finish. Fully lined with interior pockets for essentials, its mid-length cut and neutral grey hue ensure effortless pairing with both formal and casual ensembles.",
+    "category": "popular",
+    "price": 55.0,
+    "rating": 4.4,
+    "image": "https://i.ibb.co.com/4Rgxg2W5/img12.jpg",
+    "stock": 75
+  }
+]
