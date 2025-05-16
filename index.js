@@ -3,25 +3,51 @@ require("dotenv").config({ path: ".env" });
 const express = require("express");
 const app = express();
 let cors = require("cors");
+const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 const port = 3000;
 
 app.use(
   cors({
     origin: ["https://styliqueecommerce.netlify.app", "http://localhost:5173"],
+    credentials: true,
   })
 );
 app.use(express.json());
+app.use(cookieParser());
+
+function verifyToken(req, res, next) {
+  let token = req?.cookies.token;
+  if (!token) {
+    return res.status(401).send({ message: "Unauthorized access" });
+  }
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized access" });
+    }
+
+    req.user = decoded;
+    console.log(`token verified`);
+    next();
+  });
+}
 
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.jd0pjh8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {});
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
 async function run() {
   try {
     // // Connect the client to the server	(optional starting in v4.7)
-    // await client.connect();
+    await client.connect();
     // // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
     // console.log(
@@ -36,6 +62,11 @@ async function run() {
 
     //avoid duplicate orders
     await orderCollection.createIndex({ idempotencyKey: 1 }, { unique: true });
+
+    app.get("/debug", async (req, res) => {
+      console.log([process.env.DB_USER, process.env.DB_PASS]);
+      res.send([process.env.DB_USER, process.env.DB_PASS]);
+    });
 
     app.get("/products/category/:category", async (req, res) => {
       try {
@@ -144,8 +175,15 @@ async function run() {
 
     app.get("/categories", async (req, res) => {
       try {
-        let result = await productCollection.distinct("category");
-        res.send(result);
+        let result = await productCollection
+          .aggregate([
+            {
+              $group: { _id: "$category" },
+            },
+          ])
+          .toArray();
+        let categories = result.map((item) => item._id);
+        res.send(categories);
       } catch (err) {
         console.log("Error fetching categories");
         res
@@ -242,7 +280,7 @@ async function run() {
     });
 
     //get order for specific user
-    app.get("/checkout/:email", async (req, res) => {
+    app.get("/checkout/:email", verifyToken, async (req, res) => {
       try {
         let email = req.params.email;
         let filter = { email };
@@ -296,6 +334,33 @@ async function run() {
           details: err.message,
         });
       }
+    });
+
+    // -------------------- JWT TOKEN ------------------
+    app.post("/jwt", async (req, res) => {
+      let email = req.body;
+      console.log(email);
+      let token = jwt.sign(email, process.env.JWT_SECRET, { expiresIn: "1d" });
+
+      res
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+          path: "/",
+        })
+        .send({ success: true });
+    });
+
+    app.post("/deleteCookieOnLogOut", async (req, res) => {
+      res
+        .clearCookie("token", {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+          path: "/",
+        })
+        .send({ RemoveToken: true });
     });
   } finally {
     // Ensures that the client will close when you finish/error
