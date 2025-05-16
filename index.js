@@ -47,7 +47,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    //await client.connect();
     // // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
     // console.log(
@@ -320,7 +320,7 @@ async function run() {
     });
 
     //get customers
-    app.get("/customers/:email", async (req, res) => {
+    app.get("/customers/:email", verifyToken, async (req, res) => {
       try {
         let email = req.params.email;
         let filter = { email };
